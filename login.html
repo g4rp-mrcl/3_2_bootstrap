@@ -1,63 +1,188 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jerjer King Login</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Create Account</title>
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jerjer King Login</title>
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'><link rel="stylesheet" href="./login.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Create Account</title>
+    <!-- Bootstrap CSS -->
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>log in via</h3>
-				<div class="social-icons">
-					<a href="#" class="social-login__icon fab fa-instagram"></a>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a>
-				</div>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><h1>Jerjer King</h1></a>
+    </div>
+</nav>
+
+<!-- Content Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Login Form -->
+            <form id="loginForm">
+                <h2>Login</h2>
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div>
+                <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                
+                  <!-- Create Account Modal Trigger Button -->
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createAccountModal">
+                      Create Account
+                  </button>
+                 
+                </div>
+            </form>
+        </div>
+       
+        </div>
+    </div>
 </div>
-<!-- partial -->
-  
-</body>
-</html>
-<!-- partial -->
-  
+
+<!-- Create Account Modal -->
+<div class="modal fade" id="createAccountModal" tabindex="-1" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createAccountModalLabel">Create Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Create Account Form -->
+                <form id="createAccountForm">
+                    <div class="mb-3">
+                        <label for="createEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="createEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="createName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="createPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="createPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-control" id="gender">
+                            <option value="not-specified">Rather Not Say</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="yearLevel" class="form-label">Year Level</label>
+                        <select class="form-control" id="yearLevel">
+                            <option value="1st-year">1st Year</option>
+                            <option value="2nd-year">2nd Year</option>
+                            <option value="3rd-year">3rd Year</option>
+                            <option value="4th-year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">Birthdate (mm/dd/yyyy)</label>
+                        <input type="text" class="form-control" id="birthdate" placeholder="mm/dd/yyyy" required>
+                    </div>
+                    <a type="button" class="btn btn-primary" onclick="createAccount()">Create Account</a>
+                    <a type="button" class="btn btn-secondary" onclick="closeCreateAccountModal()">Close</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Your custom JavaScript -->
+<script>
+      
+      function closeCreateAccountModal() {
+        
+        var createAccountModal = new bootstrap.Modal(document.getElementById('createAccountModal'));
+        createAccountModal.hide();
+    }
+
+    function createAccount() {
+       
+        alert('Create Account clicked!');
+    }
+    <!-- Your custom JavaScript -->
+
+    function validateCreateAccountForm() {
+        var email = document.getElementById('createEmail').value;
+        var name = document.getElementById('createName').value;
+        var password = document.getElementById('createPassword').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        var gender = document.getElementById('gender').value;
+        var yearLevel = document.getElementById('yearLevel').value;
+        var address = document.getElementById('address').value;
+        var birthdate = document.getElementById('birthdate').value;
+
+        if (!email || !name || !password || !confirmPassword || !gender || !yearLevel || !address || !birthdate) {
+            alert('Please fill in all required fields.');
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert('Password and Confirm Password do not match.');
+            return false;
+        }
+
+        return true;
+    }
+
+    function createAccount() {
+        
+        if (validateCreateAccountForm()) {
+            alert('Create Account clicked!');
+        }
+    }
+    function validateLoginForm() {
+        var loginEmail = document.getElementById('loginEmail').value;
+        var loginPassword = document.getElementById('loginPassword').value;
+        if (!loginEmail || !loginPassword) {
+            alert('Please provide both email and password.');
+            return false;
+        }
+
+
+        return true;
+    }
+
+    function login() {
+        if (validateLoginForm()) {
+            alert('Login clicked!');
+        }
+    }
+
+
+
+</script>
+
+
 </body>
 </html>
